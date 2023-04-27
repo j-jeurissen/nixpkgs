@@ -200,8 +200,8 @@
 
       # Config I use with non-NixOS Linux systems (e.g., cloud VMs etc.)
       # Build and activate on new system with:
-      # `nix build .#homeConfigurations.malo.activationPackage && ./result/activate`
-      homeConfigurations.malo = home-manager.lib.homeManagerConfiguration {
+      # `nix build .#homeConfigurations.jeroen.activationPackage && ./result/activate`
+      homeConfigurations.jeroen = home-manager.lib.homeManagerConfiguration {
         pkgs = import inputs.nixpkgs-unstable (nixpkgsDefaults // { system = "x86_64-linux"; });
         modules = attrValues self.homeManagerModules ++ singleton ({ config, ... }: {
           home.username = config.home.user-info.username;
