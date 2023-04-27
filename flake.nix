@@ -58,10 +58,10 @@
       };
 
       primaryUserDefaults = {
-        username = "malo";
-        fullName = "Malo Bourgon";
-        email = "mbourgon@gmail.com";
-        nixConfigDirectory = "/Users/malo/.config/nixpkgs";
+        username = "jeroen";
+        fullName = "Jeroen Jeurissen";
+        email = "jeroenjeurissen@gmail.com";
+        nixConfigDirectory = "/Users/jeroen/.config/nixpkgs";
       };
     in
     {
