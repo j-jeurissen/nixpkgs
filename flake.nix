@@ -1,5 +1,5 @@
 {
-  description = "Malo’s Nix system configs, and some other useful stuff.";
+  description = "Jeroen’s Nix system configs, and some other useful stuff.";
 
   inputs = {
     # Package sets
@@ -174,11 +174,11 @@
         };
 
         # My Apple Silicon macOS laptop config
-        MaloBookPro = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
+        JeroenBookPro = makeOverridable self.lib.mkDarwinSystem (primaryUserDefaults // {
           modules = attrValues self.darwinModules ++ singleton {
             nixpkgs = nixpkgsDefaults;
-            networking.computerName = "Malo’s 💻";
-            networking.hostName = "MaloBookPro";
+            networking.computerName = "Jeroen’s 💻";
+            networking.hostName = "JeroenBookPro";
             networking.knownNetworkServices = [
               "Wi-Fi"
               "USB 10/100/1000 LAN"
@@ -190,7 +190,7 @@
         });
 
         # Config with small modifications needed/desired for CI with GitHub workflow
-        githubCI = self.darwinConfigurations.MaloBookPro.override {
+        githubCI = self.darwinConfigurations.JeroenBookPro.override {
           system = "x86_64-darwin";
           username = "runner";
           nixConfigDirectory = "/Users/runner/work/nixpkgs/nixpkgs";
@@ -216,7 +216,7 @@
 
     } // flake-utils.lib.eachDefaultSystem (system: {
       # Re-export `nixpkgs-unstable` with overlays.
-      # This is handy in combination with setting `nix.registry.my.flake = inputs.self`.
+      # This is handy in combination with setting `nix.registry.my.flake = inputs.self`.G
       # Allows doing things like `nix run my#prefmanager -- watch --all`
       legacyPackages = import inputs.nixpkgs-unstable (nixpkgsDefaults // { inherit system; });
 
